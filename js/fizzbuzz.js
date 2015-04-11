@@ -1,20 +1,14 @@
 $(document).ready(function() {
 
-  function fizzbuzz(max) {
-    // Clear output div 
-    $('#output').empty();
-
-    // Iterate from 1 to the value entered
-    for (var i=1; i<=max; i++) {
-      if (i % 15 === 0) {
-        $('#output').append('<p>'+'fizzbuzz'+'</p>');
-      } else if (i % 3 === 0) {
-        $('#output').append('<p>'+'fizz'+'</p>');        
-      } else if (i % 5 === 0) {
-        $('#output').append('<p>'+'buzz'+'</p>');        
-      } else {
-       $('#output').append('<p>'+ i +'</p>');               
-      }
+  function fizzbuzz(value) {
+    if (value % 15 === 0) {
+      return('fizzbuzz');
+    } else if (value % 3 === 0) {
+      return('fizz');        
+    } else if (value % 5 === 0) {
+      return('buzz');        
+    } else {
+      return(value);               
     }
   }
 
@@ -23,8 +17,14 @@ $(document).ready(function() {
   $('#enter').click(function() {    
     // Convert text input to integer with ParseInt
     var max = parseInt($('#maxValue').val());
-    // Call the fizzbuzz function 
-    fizzbuzz(max);
+    // Clear output div 
+    $('#output').empty(); 
+    // Iterate from 1 to max   
+    for (var i=1; i<=max; i++) {
+      // Append an element to the output for each value
+      // Call the fizzbuzz function to get the inner text
+      $('#output').append('<p>' + fizzbuzz(i) + '</p>');
+    }
     // reset input field
     $('#maxValue').val('');
     // return false to prevent page refresh
