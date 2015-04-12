@@ -13,8 +13,8 @@ $(document).ready(function() {
   }
 
   // Set an event handler for the enter button
-  // Get the value entered when button clicked.
-  $('#enter').click(function() {    
+  $('#enter').click(function() {  
+    // Get the value entered when button clicked.
     // Convert text input to integer with ParseInt
     var max = parseInt($('#maxValue').val());
     // Clear output div 
